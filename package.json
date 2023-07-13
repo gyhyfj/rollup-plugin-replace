@@ -1,0 +1,52 @@
+{
+  "name": "@gyhyfj/rollup-plugin-replace",
+  "version": "0.0.1",
+  "description": "Replace strings in code when dev and build",
+  "scripts": {
+    "build": "rimraf -g dist/* && rollup -c --configPlugin typescript2",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "rollup",
+    "vite",
+    "plugin",
+    "replace"
+  ],
+  "license": "MIT",
+  "author": "gyhyfj",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gyhyfj/rollup-plugin-replace.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.7",
+    "@babel/preset-env": "^7.22.7",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@types/node": "^20.4.2",
+    "@types/picomatch": "^2.3.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.26.1",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.35.0"
+  },
+  "dependencies": {
+    "picomatch": "^2.3.1"
+  }
+}
