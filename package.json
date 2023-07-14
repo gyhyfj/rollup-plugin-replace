@@ -1,8 +1,9 @@
 {
   "name": "@gyhyfj/rollup-plugin-replace",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Replace strings in code when dev and build",
   "scripts": {
+    "test": "vitest",
     "build": "rimraf -g dist/* && rollup -c --configPlugin typescript2",
     "format": "prettier --write ."
   },
@@ -40,11 +41,14 @@
     "@rollup/plugin-terser": "^0.4.3",
     "@types/node": "^20.4.2",
     "@types/picomatch": "^2.3.0",
+    "@vitest/ui": "^0.33.0",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1",
     "rollup": "^3.26.1",
     "rollup-plugin-dts": "^5.3.0",
-    "rollup-plugin-typescript2": "^0.35.0"
+    "rollup-plugin-typescript2": "^0.35.0",
+    "unplugin-auto-import": "^0.16.6",
+    "vitest": "^0.33.0"
   },
   "dependencies": {
     "picomatch": "^2.3.1"

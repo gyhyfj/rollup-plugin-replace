@@ -1,4 +1,3 @@
-import type { Plugin } from 'rollup'
 import picomatch from 'picomatch'
 import { win32, resolve, posix, isAbsolute } from 'path'
 
@@ -6,7 +5,7 @@ type ValidReplaceRule = [RegExp, string]
 type ReplaceRule = ValidReplaceRule | [string, string]
 type PathRule = RegExp | string
 
-type Options = {
+export type Options = {
   replace: ReplaceRule[]
   include?: PathRule[]
   exclude?: PathRule[]
@@ -48,11 +47,10 @@ const replaceReducer = (code: string): string => {
  * @param exclude
  */
 const createFilter = (include?: PathRule[], exclude?: PathRule[]) => {
-  const normalizePath = (path: string) => {
-    return path.split(win32.sep).join(posix.sep)
-  }
+  const normalizePath = (path: string) => path.split(win32.sep).join(posix.sep)
+
   const normalizePathRuleString = (rule: string) => {
-    if (isAbsolute(rule) || rule.startsWith('*')) {
+    if (isAbsolute(rule) || rule.startsWith('**')) {
       return normalizePath(rule)
     }
     const basePath = normalizePath(resolve(''))
@@ -78,20 +76,17 @@ const createFilter = (include?: PathRule[], exclude?: PathRule[]) => {
   }
 }
 
-export default (pluginOption: Options): Plugin => {
+export default (pluginOption: Options) => {
   return {
     name: 'rollup-plugin-replace',
-    version: '0.0.1',
-
     buildStart() {
       validRules = createValidRules(pluginOption.replace)
       filter = createFilter(pluginOption.include, pluginOption.exclude)
     },
-    transform(code, id) {
+    transform(code: string, id: string) {
       if (!filter(id)) {
         return null
       }
-
       return replaceReducer(code)
     },
   }

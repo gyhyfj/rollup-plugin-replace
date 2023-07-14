@@ -8,5 +8,5 @@
     "skipLibCheck": true,
     "esModuleInterop": true
   },
-  "include": ["rollup.config.ts", "src"]
+  "include": ["**/*.ts", "**/*.d.ts"]
 }
