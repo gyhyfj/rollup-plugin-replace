@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [
     AutoImport({
       imports: ['vitest'],
-      dts: true, 
+      dts: true,
     }),
   ],
   test: {

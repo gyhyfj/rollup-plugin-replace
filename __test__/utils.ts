@@ -5,7 +5,7 @@ export const bundleCode = async (inputCode: string, plugins?: Plugin[]) => {
   // start
   const bundle = await rollup({
     input: 'main.js',
-    plugins
+    plugins,
   })
 
   // generate
