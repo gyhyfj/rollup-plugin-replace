@@ -1,6 +1,6 @@
 {
   "name": "@gyhyfj/rollup-plugin-replace",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Replace strings in code when dev and build",
   "scripts": {
     "test": "vitest",

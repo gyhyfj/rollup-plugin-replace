@@ -27,3 +27,5 @@ plugins: [
   }),
 ],
 ```
+
+Different from `@rollup/plugin-replace`, `*.ext` will match `*.ext` files at root path of project, which `@rollup/plugin-replace` won't.
